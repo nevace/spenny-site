@@ -1,19 +1,35 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const Content = styled.main`
-	margin-top: 200px;
 	font-size: 22px;
 	line-height: 32px;
 	color: #fff;
 
+	${media.greaterThan('medium')`
+			margin-top: 200px;
+	`}
+
 	> div {
+		grid-column: span 12;
+
 		&:first-child {
-			grid-column: span 7;
+			align-self: end;
+
+			${media.greaterThan('medium')`
+			 align-self: start;
+		`}
 		}
 
-		&:last-child {
-			grid-column: span 5;
-		}
+		${media.greaterThan('medium')`
+			&:first-child {
+				grid-column: span 7;
+			}
+	
+			&:last-child {
+				grid-column: span 5;
+			}  
+		`}
 
 		label {
 			display: flex;
@@ -31,17 +47,22 @@ export const Content = styled.main`
 
 	.react-select__control {
 		margin-bottom: 20px;
-					font-size: 16px;
+		font-size: 16px;
 		line-height: 34px;
+		box-shadow: none;
+		border: none;
+
+		&:hover {
+			border: none;
+		}
 	}
 
 	.react-select__single-value {
-			color: #000;
-
+		color: #000;
 	}
-	
+
 	.react-select__option {
-				font-size: 16px;
+		font-size: 16px;
 		line-height: 34px;
 		color: #969eb2;
 	}
@@ -58,16 +79,16 @@ export const Content = styled.main`
 
 	input[type='email'] {
 		width: 100%;
-		height: 48px;
+		height: 46px;
 		border-radius: 4px;
 		margin-top: 13px;
 		margin-bottom: 15px;
 		padding: 2px 8px;
 		font-size: 16px;
 		line-height: 34px;
-		
+
 		&::placeholder {
-				color: #969eb2;
+			color: #969eb2;
 		}
 	}
 
@@ -81,7 +102,7 @@ export const Content = styled.main`
 		width: 177px;
 		color: #fff;
 		background: transparent;
-		border: 2px solid #ffffff;
+		border: 2px solid #fff;
 		border-radius: 4px;
 		font-size: 16px;
 		line-height: 18px;

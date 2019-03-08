@@ -143,11 +143,11 @@ optgroup {
 button,
 input {
     overflow: visible;
-}
-
-input {
     border: 0;
     outline: 0;
+}
+
+input:not([type='checkbox']) {
     -webkit-appearance: none;
 }
 

@@ -6,7 +6,7 @@ import bgImg from '../images/spenny-bg.jpg';
 import Select from 'react-select';
 
 class IndexPage extends Component {
-	state = { selectedOption: null };
+	state = { selectedOption: null, subscribed: false };
 
 	handleChange = selectedOption => {
 		this.setState({ selectedOption });
@@ -22,22 +22,34 @@ class IndexPage extends Component {
 			return;
 		}
 
-		this.mailchimpSubscribe({ EMAIL: emailAddress.value });
+		this.mailchimpSubscribe({ EMAIL: emailAddress.value, TYPE: this.state.selectedOption.value });
 	};
 
-	mailchimpSubscribe(data) {
-		fetch('https://spenny.us20.list-manage.com/subscribe/post-json?u=11c9e204a80ff972a2bb4f1a9&id=8f7d60084a&c=?', {
-			mode: 'no-cors',
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(data)
-		});
+	async mailchimpSubscribe({ EMAIL, TYPE }) {
+		const formData = new FormData();
+
+		formData.append('EMAIL', EMAIL);
+		formData.append('TYPE', TYPE);
+
+		const response = await fetch(
+			'https://spenny.us20.list-manage.com/subscribe/post?u=11c9e204a80ff972a2bb4f1a9&id=8f7d60084a',
+			{
+				mode: 'no-cors',
+				method: 'POST',
+				body: formData
+			}
+		);
+
+		if (response.ok) {
+			console.log('sss');
+			this.setState({ subscribed: true });
+		}
 	}
 
 	render() {
 		return (
 			<Layout bgImg={bgImg}>
-				<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+				<SEO title="Spenny" keywords={[`gatsby`, `application`, `react`]} />
 				<Content>
 					<div>
 						<h1>Spend more. Get more.</h1>
@@ -47,21 +59,28 @@ class IndexPage extends Component {
 						</p>
 					</div>
 					<div>
-						<form onSubmit={this.handleSubmit}>
-							<label htmlFor="emailAddress">Register now for early release</label>
-							<input id="email-address" name="emailAddress" type="email" placeholder="Email Address" required />
-							<Select
-								classNamePrefix="react-select"
-								placeholder="I am a..."
-								value={this.state.selectedOption}
-								onChange={this.handleChange}
-								options={[{ value: 'user', label: 'User' }, { value: 'merchant', label: 'Merchant' }]}
-							/>
-							<label>
-								<input id="terms-checkbox" type="checkbox" /> <p>I agree to the terms and conditions</p>
-							</label>
-							<button type="submit">Register interest</button>
-						</form>
+						{this.state.subscribed ? (
+							<p>
+								Thank you for registering your interest in Spenny. We will be in contact once we have our application
+								live.
+							</p>
+						) : (
+							<form onSubmit={this.handleSubmit}>
+								<label htmlFor="emailAddress">Register now for early release</label>
+								<input id="email-address" name="emailAddress" type="email" placeholder="Email Address" required />
+								<Select
+									classNamePrefix="react-select"
+									placeholder="I am a..."
+									value={this.state.selectedOption}
+									onChange={this.handleChange}
+									options={[{ value: 'user', label: 'User' }, { value: 'merchant', label: 'Merchant' }]}
+								/>
+								<label>
+									<input id="terms-checkbox" type="checkbox" /> <p>I agree to the terms and conditions</p>
+								</label>
+								<button type="submit">Register interest</button>
+							</form>
+						)}
 					</div>
 				</Content>
 			</Layout>

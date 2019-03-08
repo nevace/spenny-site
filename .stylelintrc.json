@@ -1,0 +1,10 @@
+{
+    "extends": ["stylelint-prettier/recommended"],
+    "ignoreFiles": [
+        "src/sass/tools/*.scss",
+        "src/sass/resources/**/*.scss",
+        "src/sass/settings/*.scss",
+        "src/sass/helpers/*.scss",
+        "src/sass/_normalize.scss"
+    ]
+}
