@@ -198,5 +198,4 @@ export const Content = styled.main`
 	}
 `;
 
-
 export default IndexPage;
