@@ -32,17 +32,19 @@ class IndexPage extends Component {
 		formData.append('EMAIL', EMAIL);
 		formData.append('TYPE', TYPE);
 
-		const response = await fetch(
-			'https://spenny.us20.list-manage.com/subscribe/post?u=11c9e204a80ff972a2bb4f1a9&id=8f7d60084a',
-			{
-				mode: 'no-cors',
-				method: 'POST',
-				body: formData
-			}
-		);
+		try {
+			await fetch(
+				'https://spenny.us20.list-manage.com/subscribe/post-json?u=11c9e204a80ff972a2bb4f1a9&id=8f7d60084a&c=?',
+				{
+					mode: 'no-cors',
+					method: 'POST',
+					body: formData
+				}
+			);
 
-		if (response.ok) {
 			this.setState({ subscribed: true });
+		} catch (e) {
+			console.error(e);
 		}
 	}
 

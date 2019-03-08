@@ -8,7 +8,7 @@ const Footer = () => (
 	<footer>
 		<FooterContent>
 			<p>
-				<div>Copyright Spenny {new Date().getFullYear()}.</div> <div>All rights reserved.</div>
+				<span>Copyright Spenny {new Date().getFullYear()}.</span> <span>All rights reserved.</span>
 			</p>
 			<div>
 				<OutboundLink href="#" target="_blank">
