@@ -1,7 +1,6 @@
 import React from 'react';
 import { node } from 'prop-types';
 import '../../global.css';
-import 'whatwg-fetch';
 import { Container } from './layout.styles';
 import Header from '../header';
 import Footer from '../footer/footer';
