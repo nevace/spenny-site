@@ -46,6 +46,12 @@
 		"start": "npm run develop",
 		"serve": "gatsby serve"
 	},
+	"husky": {
+		"hooks": {
+			"postcommit": "git update-index --again",
+			"precommit": "lint-staged"
+		}
+	},
 	"lint-staged": {
 		"*.js": [
 			"eslint --fix",
