@@ -33,6 +33,20 @@ module.exports = {
 			options: {
 				trackingId: 'UA-135760436-1'
 			}
-		}
+		},
+		{
+			resolve: `gatsby-plugin-favicon`,
+			options: {
+			  logo: "./src/images/favicon.png",
+			  version: '1.0',
+			  icons: {
+				android: true,
+				appleIcon: true,
+				appleStartup: true,
+				favicons: true,
+				firefox: true
+			  }
+			}
+		  }
 	]
 };
