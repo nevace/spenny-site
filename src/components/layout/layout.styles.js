@@ -7,19 +7,13 @@ export const Container = styled.div`
 	height: 100vh;
 	background: url(${({ bgImg }) => bgImg}) center / cover no-repeat;
 
-	main,
-	footer {
-		margin-left: 15px;
-		margin-right: 15px;
-	}
-
 	header {
 		align-self: end;
 		width: 100%;
 		margin: 0 auto;
 		max-width: 1180px;
 
-		${media.lessThan('medium')`
+		${media.lessThan('large')`
 			padding: 0 15px;
 		`}
 	}
@@ -30,6 +24,8 @@ export const Container = styled.div`
 		grid-column-gap: 30px;
 		justify-self: center;
 		max-width: 1180px;
+		margin-left: 15px;
+		margin-right: 15px;
 
 		p {
 			${media.lessThan('medium')`
@@ -49,5 +45,9 @@ export const Container = styled.div`
 
 	footer {
 		background: rgba(0, 0, 0, 0.17);
+
+		${media.lessThan('large')`
+			padding: 0 15px;
+		`}
 	}
 `;
