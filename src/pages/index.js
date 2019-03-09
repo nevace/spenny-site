@@ -52,54 +52,54 @@ class IndexPage extends Component {
 	render() {
 		return (
 			<>
-			<Helmet
-				htmlAttributes={{
-					class: 'page-index'
-				}}
+				<Helmet
+					htmlAttributes={{
+						class: 'page-index'
+					}}
 				/>
-			<Layout bgImg={bgImg}>
-				<SEO title="Spenny" keywords={[`gatsby`, `application`, `react`]} />
-				<Content>
-					<div>
-						<h1>Spend more. Get more.</h1>
-						<p>
-							Creating a digital solution that incentivises frequent diners with high-end restaurants and bars through
-							our mobile app.
-						</p>
-					</div>
-					<div>
-						{this.state.subscribed ? (
-							<SuccessMessage>
-								Thank you for registering your interest in Spenny. We will be in contact once we have our application
-								live.
-							</SuccessMessage>
-						) : (
-							<form onSubmit={this.handleSubmit}>
-								<label htmlFor="emailAddress">Register now for early release</label>
-								<input
-									id="email-address"
-									name="emailAddress"
-									type="email"
-									placeholder="Email Address"
-									autoComplete="off"
-									required
-								/>
-								<Select
-									classNamePrefix="react-select"
-									placeholder="I am a..."
-									value={this.state.selectedOption}
-									onChange={this.handleChange}
-									options={[{ value: 'user', label: 'User' }, { value: 'merchant', label: 'Merchant' }]}
-								/>
-								<label>
-									<input id="terms-checkbox" type="checkbox" /> <p>I agree to the terms and conditions</p>
-								</label>
-								<button type="submit">Register interest</button>
-							</form>
-						)}
-					</div>
-				</Content>
-			</Layout>
+				<Layout bgImg={bgImg}>
+					<SEO title="Spenny" keywords={[`gatsby`, `application`, `react`]} />
+					<Content>
+						<div>
+							<h1>Spend more. Get more.</h1>
+							<p>
+								Creating a digital solution that incentivises frequent diners with high-end restaurants and bars through
+								our mobile app.
+							</p>
+						</div>
+						<div>
+							{this.state.subscribed ? (
+								<SuccessMessage>
+									Thank you for registering your interest in Spenny. We will be in contact once we have our application
+									live.
+								</SuccessMessage>
+							) : (
+								<form onSubmit={this.handleSubmit}>
+									<label htmlFor="emailAddress">Register now for early release</label>
+									<input
+										id="email-address"
+										name="emailAddress"
+										type="email"
+										placeholder="Email Address"
+										autoComplete="off"
+										required
+									/>
+									<Select
+										classNamePrefix="react-select"
+										placeholder="I am a..."
+										value={this.state.selectedOption}
+										onChange={this.handleChange}
+										options={[{ value: 'user', label: 'User' }, { value: 'merchant', label: 'Merchant' }]}
+									/>
+									<label>
+										<input id="terms-checkbox" type="checkbox" /> <p>I agree to the terms and conditions</p>
+									</label>
+									<button type="submit">Register interest</button>
+								</form>
+							)}
+						</div>
+					</Content>
+				</Layout>
 			</>
 		);
 	}
