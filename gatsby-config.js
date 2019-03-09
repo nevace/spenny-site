@@ -37,16 +37,17 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-favicon`,
 			options: {
-			  logo: "./src/images/favicon.png",
-			  version: '1.0',
-			  icons: {
-				android: true,
-				appleIcon: true,
-				appleStartup: true,
-				favicons: true,
-				firefox: true
-			  }
+				logo: './src/images/favicon.png',
+				version: '1.0',
+				icons: {
+					android: true,
+					appleIcon: true,
+					appleStartup: true,
+					favicons: true,
+					firefox: true
+				}
 			}
-		  }
+		},
+		`gatsby-plugin-netlify`
 	]
 };
