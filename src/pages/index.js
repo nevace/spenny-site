@@ -62,14 +62,14 @@ class IndexPage extends Component {
 					</div>
 					<div>
 						{this.state.subscribed ? (
-							<p>
+							<p className="success-message">
 								Thank you for registering your interest in Spenny. We will be in contact once we have our application
 								live.
 							</p>
 						) : (
 							<form onSubmit={this.handleSubmit}>
 								<label htmlFor="emailAddress">Register now for early release</label>
-								<input id="email-address" name="emailAddress" type="email" placeholder="Email Address" required />
+								<input id="email-address" name="emailAddress" type="email" placeholder="Email Address" autoComplete="off" required />
 								<Select
 									classNamePrefix="react-select"
 									placeholder="I am a..."
@@ -126,6 +126,11 @@ export const Content = styled.main`
 			font-size: 18px;
 			line-height: 32px;
 
+			${media.lessThan('medium')`
+				font-size: 16px;
+				line-height: 26px;
+			`}
+
 			p {
 				margin: 0 0 0 10px;
 				font-size: 14px;
@@ -140,6 +145,7 @@ export const Content = styled.main`
 		line-height: 34px;
 		box-shadow: none;
 		border: none;
+		cursor: pointer;
 
 		&:hover {
 			border: none;
@@ -184,6 +190,11 @@ export const Content = styled.main`
 	input[type='checkbox'] {
 		width: 20px;
 		height: 20px;
+		cursor: pointer;
+
+		+ p {
+			cursor: pointer;
+		}
 	}
 
 	button {
@@ -197,6 +208,18 @@ export const Content = styled.main`
 		line-height: 18px;
 		cursor: pointer;
 		margin-top: 16px;
+		user-select: nome;
+
+		&:hover {
+			background-color: #fff;
+			color: #353535;
+			transition: background-color ease-in-out .05s; 
+		}
+	}
+
+	.success-message {
+		font-size: 18px;
+		line-height: 24px;
 	}
 `;
 

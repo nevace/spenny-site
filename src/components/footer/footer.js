@@ -9,7 +9,7 @@ const Footer = () => (
 	<footer>
 		<FooterContent>
 			<p>
-				<span>Copyright Spenny {new Date().getFullYear()}.</span> <span>All rights reserved.</span>
+				<span>Copyright Spenny {new Date().getFullYear()}.</span>&nbsp;<span>All rights reserved.</span>
 			</p>
 			<div>
 				<OutboundLink href="https://www.facebook.com/spenny.io" target="_blank">

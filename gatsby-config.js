@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: `Spenny`,
-		description: `Spenny Desc`,
+		description: `Creating a digital solution that incentivises frequent diners with high-end restaurants and bars through our mobile app.`,
 		author: `Spenny`
 	},
 	plugins: [
