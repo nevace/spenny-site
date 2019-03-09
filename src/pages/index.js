@@ -58,7 +58,7 @@ class IndexPage extends Component {
 					}}
 				/>
 				<Layout bgImg={bgImg}>
-					<SEO title="Spenny" keywords={[`gatsby`, `application`, `react`]} />
+					<SEO title="Spenny" keywords={['spenny', 'cashback', 'rewards', 'card linked offers']} />
 					<Content>
 						<div>
 							<h1>Spend more. Get more.</h1>
