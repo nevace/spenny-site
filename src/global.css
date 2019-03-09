@@ -3,6 +3,18 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+html.page-index {
+    background: url(./images/spenny-bg.jpg) center / auto no-repeat;
+
+}
+
+@media only screen and (min-width: 768px) {
+    html.page-index {
+        background-size: cover;
+    }
+}
+
+
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;

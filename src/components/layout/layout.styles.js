@@ -1,21 +1,13 @@
 import styled from 'styled-components';
-import media from 'styled-media-query';
 
 export const Container = styled.div`
 	display: grid;
-	grid-template-rows: 50px auto 50px;
+	grid-template-rows: 100px auto 50px;
+	grid-template-columns: 1fr;
 	height: 100vh;
-	background: url(${({ bgImg }) => bgImg}) center / cover no-repeat;
 
 	header {
-		align-self: end;
-		width: 100%;
-		margin: 0 auto;
-		max-width: 1180px;
-
-		${media.lessThan('large')`
-			padding: 0 15px;
-		`}
+		padding: 0 15px;
 	}
 
 	main {
@@ -26,28 +18,10 @@ export const Container = styled.div`
 		max-width: 1180px;
 		margin-left: 15px;
 		margin-right: 15px;
-
-		p {
-			${media.lessThan('medium')`
-				font-size: 16px;
-				line-height: 22px;
-			`}
-		}
-
-		h1 {
-			${media.lessThan('medium')`
-				font-size: 32px;
-				line-height: 28px;
-				margin-bottom: 50px;
-			`}
-		}
 	}
 
 	footer {
 		background: rgba(0, 0, 0, 0.17);
-
-		${media.lessThan('large')`
-			padding: 0 15px;
-		`}
+		padding: 0 15px;
 	}
 `;

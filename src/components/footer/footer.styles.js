@@ -9,20 +9,16 @@ export const FooterContent = styled.div`
 	margin: 0 auto;
 
 	p {
-		font-size: 14px;
-		line-height: 20px;
+		font-size: 12px;
+		line-height: 16px;
 		color: #c4c4c4;
 		width: 50%;
 		margin: 0;
 
 		${media.greaterThan('medium')`
 			display: flex;
-			line-height: 32px;
-		`}
-
-		${media.lessThan('medium')`
-			font-size: 12px;
-			line-height: 16px;
+			font-size: 14px;
+			line-height: 20px;
 		`}
 	}
 

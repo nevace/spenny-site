@@ -5,6 +5,7 @@ import bgImg from '../images/spenny-bg.jpg';
 import Select from 'react-select';
 import styled from 'styled-components';
 import media from 'styled-media-query';
+import Helmet from 'react-helmet';
 
 class IndexPage extends Component {
 	state = { selectedOption: null, subscribed: false };
@@ -50,6 +51,12 @@ class IndexPage extends Component {
 
 	render() {
 		return (
+			<>
+			<Helmet
+				htmlAttributes={{
+					class: 'page-index'
+				}}
+				/>
 			<Layout bgImg={bgImg}>
 				<SEO title="Spenny" keywords={[`gatsby`, `application`, `react`]} />
 				<Content>
@@ -62,14 +69,21 @@ class IndexPage extends Component {
 					</div>
 					<div>
 						{this.state.subscribed ? (
-							<p className="success-message">
+							<SuccessMessage>
 								Thank you for registering your interest in Spenny. We will be in contact once we have our application
 								live.
-							</p>
+							</SuccessMessage>
 						) : (
 							<form onSubmit={this.handleSubmit}>
 								<label htmlFor="emailAddress">Register now for early release</label>
-								<input id="email-address" name="emailAddress" type="email" placeholder="Email Address" autoComplete="off" required />
+								<input
+									id="email-address"
+									name="emailAddress"
+									type="email"
+									placeholder="Email Address"
+									autoComplete="off"
+									required
+								/>
 								<Select
 									classNamePrefix="react-select"
 									placeholder="I am a..."
@@ -86,18 +100,36 @@ class IndexPage extends Component {
 					</div>
 				</Content>
 			</Layout>
+			</>
 		);
 	}
 }
 
-export const Content = styled.main`
+const Content = styled.main`
 	font-size: 22px;
 	line-height: 32px;
 	color: #fff;
 
-	${media.greaterThan('medium')`
-			margin-top: 200px;
-	`}
+	p {
+		font-size: 16px;
+		line-height: 22px;
+
+		${media.greaterThan('medium')`
+				font-size: 22px;	
+				line-height: 32px;
+		`}
+	}
+
+	h1 {
+		font-size: 32px;
+		line-height: 28px;
+		margin-bottom: 50px;
+
+		${media.greaterThan('medium')`
+				font-size: 48px;
+				line-height: 55px;
+		`}
+	}
 
 	> div {
 		grid-column: span 12;
@@ -106,29 +138,28 @@ export const Content = styled.main`
 			align-self: end;
 
 			${media.greaterThan('medium')`
-			 align-self: start;
-		`}
+				grid-column: span 7;
+				grid-row: 2 / 3;
+				align-self: auto;
+			`}
 		}
 
-		${media.greaterThan('medium')`
-			&:first-child {
-				grid-column: span 7;
-			}
-	
-			&:last-child {
+		&:last-child {
+			${media.greaterThan('medium')`
 				grid-column: span 5;
-			}  
-		`}
+				grid-row: 2 / 3;
+			`}
+		}
 
 		label {
 			display: flex;
 			align-items: end;
-			font-size: 18px;
-			line-height: 32px;
+			font-size: 16px;
+			line-height: 26px;
 
-			${media.lessThan('medium')`
-				font-size: 16px;
-				line-height: 26px;
+			${media.greaterThan('medium')`
+					font-size: 18px;
+					line-height: 32px;
 			`}
 
 			p {
@@ -213,14 +244,14 @@ export const Content = styled.main`
 		&:hover {
 			background-color: #fff;
 			color: #353535;
-			transition: background-color ease-in-out .05s; 
+			transition: background-color ease-in-out 0.05s;
 		}
 	}
+`;
 
-	.success-message {
-		font-size: 18px;
-		line-height: 24px;
-	}
+const SuccessMessage = styled.p`
+	font-size: 18px;
+	line-height: 24px;
 `;
 
 export default IndexPage;
