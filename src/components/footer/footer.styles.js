@@ -29,9 +29,10 @@ export const FooterContent = styled.div`
 
 	a {
 		display: flex;
+		margin-right: 25px;
 
-		&:first-child {
-			margin-right: 25px;
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 `;
