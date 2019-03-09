@@ -19,6 +19,11 @@ export const FooterContent = styled.div`
 			display: flex;
 			line-height: 32px;
 		`}
+
+		${media.lessThan('medium')`
+			font-size: 12px;
+			line-height: 16px;
+		`}
 	}
 
 	> div {
