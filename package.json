@@ -48,5 +48,20 @@
 		"format": "prettier --write src/**/*.{js,jsx}",
 		"start": "npm run develop",
 		"serve": "gatsby serve"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": [
+			"eslint --fix",
+			"git add"
+		],
+		"*.css": [
+			"stylelint --fix",
+			"git add"
+		]
 	}
 }
