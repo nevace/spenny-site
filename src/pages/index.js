@@ -62,10 +62,10 @@ class IndexPage extends Component {
 					<Content>
 						<div>
 							<h1>Spend more. Get more.</h1>
-							<p>
+							<h2>
 								Creating a digital solution that incentivises frequent diners with high-end restaurants and bars through
 								our mobile app.
-							</p>
+							</h2>
 						</div>
 						<div>
 							{this.state.subscribed ? (
@@ -110,9 +110,10 @@ const Content = styled.main`
 	line-height: 32px;
 	color: #fff;
 
-	p {
+	h2 {
 		font-size: 16px;
 		line-height: 22px;
+		font-weight: normal;
 
 		${media.greaterThan('medium')`
 				font-size: 22px;	
