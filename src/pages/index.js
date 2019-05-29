@@ -92,7 +92,8 @@ class IndexPage extends Component {
 										options={[{ value: 'user', label: 'User' }, { value: 'merchant', label: 'Merchant' }]}
 									/>
 									<label>
-										<input id="terms-checkbox" type="checkbox" /> <p>I agree to the terms and conditions</p>
+										<input id="terms-checkbox" type="checkbox" />{' '}
+										<p>I give permission to receive marketing communication by email</p>
 									</label>
 									<button type="submit">Register interest</button>
 								</form>
